@@ -30,6 +30,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Ensure Connectivity between the client and Domain Controller
 - Enable ICMPv4 in on the local windows Firewall and check connectivity
 - Install Active Directory
+- Create an Admin and Normal User Account in Active Directory
 
 
 <h2>Deployment and Configuration Steps</h2>
@@ -113,6 +114,39 @@ First, switch back to DC-1. Then you'll go to Server Manager -> Add roles and fe
 ![image](https://github.com/oraljr/configure-ad/assets/152557529/6cc6396d-0618-4f03-8ca7-a793bdf08478)
 
 Add features and select next and install.
+<hr>
+
+Next you'll promote the server as a Domain Controller. In the upper right corner you'll see a flag with an action sign next to it in the Server Manager notifications section. You'll select promote this server as a domain controller.
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/7e2a3878-0783-43dd-a131-1e16964418a4)
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/92acbd98-78e6-4a36-a312-c91d4c13e970)
+
+Select Add new forest ->
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/65a88f56-1d2f-4dcd-91ba-e4ca1adce8a9)
+
+Setup a new forest as yourdomainname.com. It can be name it anything, just remember what you choose. 
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/78f24c9f-70e4-4e54-849d-27592f01e01d)
+
+Choose a password on the next page and just click through 'Next' and install. Once the installation is complete the host will restart.
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/146fe53c-171b-4d06-ae4e-28c3fc44e329)
+
+Return to DC-1 in Azure and refesh the VM for the public ip address so you can log back into the remote desktop. The ip address should be the same but it might change upon refresh. DC-1 is now a domain controller, so you'll have to long in with the context of the fully qualifed domain name (FQDN) as username. So: yourdomainname.com\whatever username is thats a member of this domain, which you created when you initally set up the VM.
+
+i.e.: yourdomainname.com\o4estjr
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/fd10935d-c860-4061-a332-d9335b7ff35c)
+
+<hr>
+Now you'll create an Admin and Normal User Account in Active Directory.
+</p>
+From the search bar on DC-1, you'll locate Active Directory Users and Computers and you'll right click to create an Organizational Unit (OU) called '_EMPLOYEES' ( **NOTE** : the underscore and caps are not necessary but they do help to eaisly differentiate the OU's you create from the other folders)
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/4e74a0f0-e478-4414-becd-79227c9da50f)
+
 
 </p>
 <br />
