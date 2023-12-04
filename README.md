@@ -104,7 +104,7 @@ Return to Client-1 and the ping should now be responding.
 Next you'll install Active Directory.
 <hr>
 
-First, switch back to D-1. Then you'll go to Server Manager -> Add roles and features -> Active Directory Domain Services 
+First, switch back to DC-1. Then you'll go to Server Manager -> Add roles and features -> Active Directory Domain Services 
 
 (**NOTE**: Make sure to only select Active Directory Domain Services as there are multiple Active Directory available)
 
