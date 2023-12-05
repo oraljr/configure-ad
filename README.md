@@ -26,11 +26,13 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 - Setup Resources in Azure
 - Set Domain Controller’s NIC Private IP address to static
-- Create Client-1 VM
 - Ensure Connectivity between the client and Domain Controller
 - Enable ICMPv4 in on the local windows Firewall and check connectivity
 - Install Active Directory
 - Create an Admin and Normal User Account in Active Directory
+- Join Client-1 to your domain
+- Setup Remote Desktop for non-administrative users on Client-1
+- Create additional users and log into client-1 with one of the users
 
 
 <h2>Deployment and Configuration Steps</h2>
@@ -143,10 +145,24 @@ i.e.: yourdomainname.com\o4estjr
 <hr>
 Now you'll create an Admin and Normal User Account in Active Directory.
 </p>
-From the search bar on DC-1, you'll locate Active Directory Users and Computers and you'll right click to create an Organizational Unit (OU) called '_EMPLOYEES' ( **NOTE** : the underscore and caps are not necessary but they do help to eaisly differentiate the OU's you create from the other folders)
+From the search bar on DC-1, you'll locate Active Directory Users and Computers and you'll right click to create an Organizational Unit (OU) named '_EMPLOYEES' (the underscore and caps are not necessary, but they do help to eaisly differentiate the OU's you create from the other folders) and another OU named '_ADMINS' then simply right click on the domain to refresh.
 
 ![image](https://github.com/oraljr/configure-ad/assets/152557529/4e74a0f0-e478-4414-becd-79227c9da50f)
 
+Next you'll go to the _ADMINS OU, open it up and right click inside for New -> Users and add new user. Fill in the name and create a password. 
 
+![image](https://github.com/oraljr/configure-ad/assets/152557529/c43dc90a-57d7-48be-b0ef-b357162e2bc1)
+
+Next you'll add your new user to the Domains Admins Security Group to make them a domain admin. Right click your user to open properties -> Member of -> Add and type 'domain admins' in the box and select Check Names and it should underline, then Apply your changes and select ok.
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/89ba08f2-6419-42d4-a322-29d4502a45c1)
+
+Next you'll log out of DC-1 and reopen Remote Desktop and log back in as your newly created admin user.
 </p>
+i.e.: yourdomainname.com\a-jane
+</p>
+Next you'll join Client-1 to your domain.
+
+
+
 <br />
