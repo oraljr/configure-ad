@@ -162,7 +162,47 @@ Next you'll log out of DC-1 and reopen Remote Desktop and log back in as your ne
 i.e.: yourdomainname.com\a-jane
 </p>
 Next you'll join Client-1 to your domain.
+<hr>
+From the Azure Portal you'll set Client-1’s DNS settings to the DC’s Private IP address.
 
+Select Client-1 -> Network Settings -> 
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/95ccc2fc-3222-44bd-bdc1-1db8e9b9eb0f)
+
+
+NIC ->
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/572f911a-7557-41d3-8074-13fa2b4b4e08)
+
+
+DNS servers -> 
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/36a15e34-08bc-43ff-840c-1556fec89476)
+
+
+Custom -> 
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/009ab830-ad33-482d-97e1-f262ac5dbde1)
+
+
+Enter DC-1's private ip and save.
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/2ae320f6-6615-46ff-9da9-c6c44c1667da)
+
+Now from the Azure portal, restart Client-1.
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/5093e993-bd68-460b-aca1-9f956f64aaa4)
+
+Next you'll login to Client-1 (Remote Desktop) as the original local admin (sans domain) and join it to the domain. 
+
+Right click start -> System ->
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/cf509633-cbf6-4333-894c-ca3b8011aac9)
+
+
+
+
+Expect the host to restart.
 
 
 <br />
