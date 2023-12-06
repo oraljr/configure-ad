@@ -136,7 +136,7 @@ Choose a password on the next page and just click through 'Next' and install. On
 
 ![image](https://github.com/oraljr/configure-ad/assets/152557529/146fe53c-171b-4d06-ae4e-28c3fc44e329)
 
-Return to DC-1 in Azure and refesh the VM for the public ip address so you can log back into the remote desktop. The ip address should be the same but it might change upon refresh. DC-1 is now a domain controller, so you'll have to long in with the context of the fully qualifed domain name (FQDN) as username. So: yourdomainname.com\whatever username is thats a member of this domain, which you created when you initally set up the VM.
+Return to DC-1 in Azure and refesh the VM for the public ip address so you can log back into the remote desktop. The ip address should be the same but it might change upon refresh. DC-1 is now a domain controller, so you'll have to long in with the context of the fully qualifed domain name (FQDN) as username. So: yourdomainname.com\whatever username thats a member of this domain, which you created when you initally set up the VM.
 
 i.e.: yourdomainname.com\o4estjr
 
@@ -145,7 +145,7 @@ i.e.: yourdomainname.com\o4estjr
 <hr>
 Now you'll create an Admin and Normal User Account in Active Directory.
 </p>
-From the search bar on DC-1, you'll locate Active Directory Users and Computers and you'll right click to create an Organizational Unit (OU) named '_EMPLOYEES' (the underscore and caps are not necessary, but they do help to eaisly differentiate the OU's you create from the other folders) and another OU named '_ADMINS' then simply right click on the domain to refresh.
+From the search bar on DC-1, you'll locate Active Directory Users and Computers and you'll right click to create an Organizational Unit (OU) named '_EMPLOYEES' (the underscore and caps are not necessary, but they do help to eaisly differentiate the OU's you create from the other containers) and another OU named '_ADMINS' then simply right click on the domain to refresh.
 
 ![image](https://github.com/oraljr/configure-ad/assets/152557529/4e74a0f0-e478-4414-becd-79227c9da50f)
 
@@ -193,16 +193,47 @@ Now from the Azure portal, restart Client-1.
 
 ![image](https://github.com/oraljr/configure-ad/assets/152557529/5093e993-bd68-460b-aca1-9f956f64aaa4)
 
-Next you'll login to Client-1 (Remote Desktop) as the original local admin (sans domain) and join it to the domain. 
+Next you'll login to Client-1 (Remote Desktop) as the original local admin (original username only, sans domain name) and join it to the domain. 
 
 Right click start -> System ->
 
 ![image](https://github.com/oraljr/configure-ad/assets/152557529/cf509633-cbf6-4333-894c-ca3b8011aac9)
 
+rename this pc advanced -> 
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/04c6c6fe-d06c-4450-bad8-78fd65f6ff73)
+
+
+change -> 
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/a6c60b67-5a98-4d8c-81db-4c73e9a3832d)
+
+
+domain -> 
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/2d60f0e1-a294-4963-b7a2-c85bc3d66a16)
+
+
+Enter the domain name you created in the box (i.e.: yourdoaminname.com) -> 
 
 
 
-Expect the host to restart.
+Enter the credentials of the domain admin account -> yourdomainname.com\(admin user) -> enter admin users password. Welcome to (domainaddress).com should populate somewhere behind the open windows. 
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/e2a8b5e3-7d8e-48ea-bb10-4657c2783055)
+
+Then host will need to restart.
+
+Next you'll login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the 'Computers' container on the root of the domain.
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/a48bbcb6-1be8-4df1-a2c5-941ef4944cf5)
+
+<hr>
+Now you're going to set it up where all noraml domain users are able to remote into Client-1. As of now, only the administrative accounts can remote into Client-1.
+
+So in CLient-1, you'll go back to system properties (right click the Start menu and select 'System'). The you'' select Remote Desktop
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/acfa1c7b-d6b7-4aee-9e2d-04a820f1534c)
 
 
 <br />
