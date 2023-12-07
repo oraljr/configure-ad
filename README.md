@@ -246,8 +246,9 @@ Type 'domain users" in the box -> Check names -> Ok.
 Essentially now all domain users are allowed to log in to this computer. Now you can log into Client-1 as a normal, non-administrative user.
 <hr>
 Next you'll create a bunch of additional users and attempt to log into Client-1 with one of the new users.
-<hr>
-Login in DC- as your admin account and open PowerShell_ISE as an administrator
+</p>
+Login in DC-1 as your admin account and open PowerShell_ISE as an administrator
+</p>
 
 ![image](https://github.com/oraljr/configure-ad/assets/152557529/50eeb0ec-8f9e-4c9b-8f17-6880b782778d)
 
