@@ -229,11 +229,55 @@ Next you'll login to the Domain Controller (Remote Desktop) and verify Client-1 
 ![image](https://github.com/oraljr/configure-ad/assets/152557529/a48bbcb6-1be8-4df1-a2c5-941ef4944cf5)
 
 <hr>
-Now you're going to set it up where all noraml domain users are able to remote into Client-1. As of now, only the administrative accounts can remote into Client-1.
+Now you're going to set it up where all noraml domain users are able to remote into Client-1. As of now, only the administrative accounts have remote access into Client-1.
 
-So in CLient-1, you'll go back to system properties (right click the Start menu and select 'System'). The you'' select Remote Desktop
+So log into CLient-1 as your domain admin account (i.e.: yourdomainname.com\a-jane), you'll go back to system properties (right click the Start menu and select 'System'). Then you'll select Remote Desktop ->
 
 ![image](https://github.com/oraljr/configure-ad/assets/152557529/acfa1c7b-d6b7-4aee-9e2d-04a820f1534c)
 
+Select users that can remotely access this PC -> Add... ->
 
-<br />
+![image](https://github.com/oraljr/configure-ad/assets/152557529/e7644a26-85d3-4497-a478-1f0d7bb3ebb0)
+
+Type 'domain users" in the box -> Check names -> Ok.
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/0d1f23e7-1678-4461-8d7a-ed3e51b4a5de)
+
+Essentially now all domain users are allowed to log in to this computer. Now you can log into Client-1 as a normal, non-administrative user.
+<hr>
+Next you'll create a bunch of additional users and attempt to log into Client-1 with one of the new users.
+<hr>
+Login in DC- as your admin account and open PowerShell_ISE as an administrator
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/50eeb0ec-8f9e-4c9b-8f17-6880b782778d)
+
+Select New File in the upper left corner ->
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/ff9c3f5a-1a3a-45a1-824e-80d78c50ebac)
+
+Paste the contents of you name generator script into Powershell and run the script.
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/97b36bc9-0bca-4062-8908-8703265c2567)
+
+Observe the accounts being created
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/056b716d-1cc7-4292-9f59-789b5e75ffdd)
+
+Once complete, open ADUC and refresh the '_EMPLOYEES' container 
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/0c556c73-3c85-4606-a1e4-bd15517476b0)
+
+Observe the accounts in the appropriate OU.
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/babb3b69-a8d0-4fb1-ad9b-193231375332)
+
+Now attempt to log into Client-1 with one of the newly added accounts using the password from the script.
+
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/e1d8ce77-2abc-446b-b7c6-8265c0ce4759)
+
+
+![image](https://github.com/oraljr/configure-ad/assets/152557529/b381a765-7d19-413b-9caf-d615a9aca205)
+
+
+You've done it!! You successfully Deployed Active Directory!! Big sigh...
