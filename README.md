@@ -1,5 +1,7 @@
 <p align="center">
-<img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
+  
+![image](https://github.com/oraljr/configure-ad/assets/152557529/439f4a71-40a6-4d01-bd8f-b91fc4df48f4)
+
 </p>
 
 <h1>Active Directory Deployed in the Cloud (Azure)</h1>
